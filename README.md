@@ -1,1 +1,3 @@
-# Tools by [Michael Manduca](http://twitter.com/mduca)
+# Tools 
+
+###by [Michael Manduca](http://twitter.com/mduca)
