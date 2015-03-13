@@ -13,31 +13,47 @@
 require "httparty"
 require "json"
 
+def addDns (name, domain, content)
+
 file = File.read('confs/cf-config.json')
 config = JSON.parse(file)
 
-res = HTTParty.post(config["url"],
-    :body => { 
-          "a" => "rec_new",
-          "tkn" => config["api-key"],
-          "email" => config["email"],
-          "z" => "mandu.ca",
-          "type" => "A",
-          "name" => "test6",
-          "content" => "192.168.1.1",
-          "ttl" => 360
-    },
-    :header => { 'Content-Type' => 'application/json'}                     
-)
+  response = HTTParty.post(config["url"],
+      :body => { 
+        "a" => "rec_new",
+        "tkn" => config["api-key"],
+        "email" => config["email"],
+        "z" => domain,
+        "type" => "A",
+        "name" => name,
+        "content" => content,
+        "ttl" => 360 
+      },
+      :header => { 'Content-Type' => 'application/json'}                     
+  )
 
-puts res
+  errorChck response
+end
 
-if res["result"] == "success"
-  res_obj = res["response"]["rec"]["obj"]
-  puts "Success: " + res_obj["name"] + " - " + res_obj["content"]
+  def errorChck(res)
+  if res["result"] == "success"
+    res_obj = res["response"]["rec"]["obj"]
+    puts "Success: " + res_obj["name"] + " - " + res_obj["content"]
 
+  else 
+    puts "Error: " + res["msg"]
+    
+  end
+end
+
+if ARGV[0] == "add" and ARGV.size == 4
+  name    = ARGV[1]
+  domain  = ARGV[2]
+  content = ARGV[3]
+
+  puts addDns name, domain, content
 else 
-  puts "Error: " + res["msg"]
-  
+  puts "wrong parameters"
+
 end
 
