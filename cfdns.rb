@@ -52,7 +52,7 @@ def listDns
 
   res_obj = response["response"]["recs"]["objs"]
   res_obj.each do |x|
-    puts x["name"]
+    puts x["name"] + " - " + x["content"] + " - " + x["rec_id"]
   end
 end
 
