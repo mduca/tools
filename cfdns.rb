@@ -50,11 +50,14 @@ def listDns
         :header => { 'Content-Type' => 'application/json'}                     
     )
 
-  puts response
+  res_obj = response["response"]["recs"]["objs"]
+  res_obj.each do |x|
+    puts x["name"]
+  end
 end
 
 
-  def errorChck(res)
+def errorChck(res)
   if res["result"] == "success"
     res_obj = res["response"]["rec"]["obj"]
     puts "Success: " + res_obj["name"] + " - " + res_obj["content"]
@@ -73,7 +76,5 @@ if ARGV[0] == "add" and ARGV.size == 4
   puts addDns name, domain, content
 
 elsif ARGV[0] == "list"
-  puts ARGV[1]
-  puts listDns 
-
+  listDns 
 end
