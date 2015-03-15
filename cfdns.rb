@@ -18,7 +18,7 @@ def addDns (name, domain, content)
 file = File.read('confs/cf-config.json')
 config = JSON.parse(file)
 
-  response = HTTParty.post(config["url"],
+response = HTTParty.post(config["url"],
       :body => { 
         "a" => "rec_new",
         "tkn" => config["api-key"],
@@ -34,6 +34,25 @@ config = JSON.parse(file)
 
   errorChck response
 end
+
+def listDns 
+
+  file = File.read('confs/cf-config.json')
+  config = JSON.parse(file)
+
+  response = HTTParty.post(config["url"],
+        :body => { 
+          "a" => "rec_load_all",
+          "tkn" => config["api-key"],
+          "email" => config["email"],
+          "z" => "mandu.ca"
+        },
+        :header => { 'Content-Type' => 'application/json'}                     
+    )
+
+  puts response
+end
+
 
   def errorChck(res)
   if res["result"] == "success"
@@ -52,8 +71,9 @@ if ARGV[0] == "add" and ARGV.size == 4
   content = ARGV[3]
 
   puts addDns name, domain, content
-else 
-  puts "wrong parameters"
+
+elsif ARGV[0] == "list"
+  puts ARGV[1]
+  puts listDns 
 
 end
-
