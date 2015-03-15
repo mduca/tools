@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # Cloudflare new DNS creationg tool
 #
 # touch cf-config.json
@@ -51,9 +52,29 @@ def listDns
     )
 
   res_obj = response["response"]["recs"]["objs"]
+  puts res_obj.length.to_s + " - domains available"
   res_obj.each do |x|
     puts x["name"] + " - " + x["content"] + " - " + x["rec_id"]
   end
+end
+
+
+def delDns (id)
+
+  file = File.read('confs/cf-config.json')
+  config = JSON.parse(file)
+
+  response = HTTParty.post(config["url"],
+        :body => { 
+          "a" => "rec_delete",
+          "tkn" => config["api-key"],
+          "email" => config["email"],
+          "z" => "mandu.ca",
+          "id" => id
+        },
+        :header => { 'Content-Type' => 'application/json'}                     
+    )
+
 end
 
 
@@ -77,4 +98,9 @@ if ARGV[0] == "add" and ARGV.size == 4
 
 elsif ARGV[0] == "list"
   listDns 
+
+elsif ARGV[0] == "delete"
+  id = ARGV[1]
+  delDns id
+
 end
