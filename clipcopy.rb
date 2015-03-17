@@ -12,7 +12,9 @@ class Google
   format :json
 end
 
-file = File.read('confs/url-config.json')
+
+fname = File.join(File.dirname(__FILE__), "confs/url-config.json")
+file = File.read(fname)
 config = JSON.parse(file)
 
 
