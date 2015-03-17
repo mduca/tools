@@ -12,13 +12,15 @@ class Google
   format :json
 end
 
-url = "https://www.googleapis.com/urlshortener/v1/url"
-api = "AIzaSyCf89w0sWznK_YL3ate4Awm1DzWUIrp9Ks"
+file = File.read('confs/url-config.json')
+config = JSON.parse(file)
+
+
 clip = Clipboard.paste
 
-response = Google.post(url,
+response = Google.post(config["url"],
   :headers=>  { "Content-type" => "application/json" },
-  :query =>   { :key => api },
+  :query =>   { :key => config["api"] },
   :body =>    { "longUrl" => clip }.to_json
 )
 
