@@ -27,6 +27,7 @@ if hash git 2>/dev/null; then
   git clone https://github.com/tpope/vim-rails.git ~/.vim/bundle/rails
   git clone https://github.com/Lokaltog/vim-easymotion ~/.vim/bundle/vim-easymotion
   git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
+  git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
 
   clear
   source ~/.bashrc
