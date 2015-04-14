@@ -10,12 +10,13 @@
 # }
 #
 
-
+# add exceptions if either of these requirements fail
 require "httparty"
 require "json"
 
 def addDns (name, domain, content)
 
+# add tests for config exists.
 file = File.read('confs/cf-config.json')
 config = JSON.parse(file)
 
