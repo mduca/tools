@@ -1,3 +1,5 @@
 .fitgem.yml
 *.sw?
 /confs/*
+
+nogit-*
