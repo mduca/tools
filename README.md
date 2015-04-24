@@ -12,4 +12,4 @@
 
 ## Bash Scripts
 
-* [actuate.sh](../blob/master/actuate.sh) - _Pull down .dotfiles and setup vim plugins_
+* [actuate.sh](../master/actuate.sh) - _Pull down .dotfiles and setup vim plugins_
