@@ -5,13 +5,11 @@
 
 ## Ruby
 * [unicorn.rb](https://github.com/mduca/tools/blob/master/unicorn.rb) - _unicorn settings for RoR/Nginx setup_
-* wutos.rb - _What OS am I using_
-* cfdns.rb - _Cloudflare DNS CRUD tool_
-* clipcopy.rb - _replace long clipboard url wth goo.gl URL on clipboard_
+* [wutos.rb](https://github.com/mduca/tools/blobl/master/wutos.rb) - _What OS am I using_
+* [cfdns.rb](https://github.com/mduca/tools/blobl/master/cfdns.rb) - _Cloudflare DNS CRUD tool_
+* [clipcopy.rb](https://github.com/mduca/tools/blobl/master/cfdns.rb) - _Replace long clipboard url wth goo.gl URL on clipboard_
 
 
 ## Bash Scripts
 
-* actuate.sh - _pull down .dotfiles and setup vim plugins_
-* tmuxpid.sh - _Show current running tmux PID._
-
+* [actuate.sh](https://github.com/mduca/tools/blobl/master/actuate.sh) - _Pull down .dotfiles and setup vim plugins_

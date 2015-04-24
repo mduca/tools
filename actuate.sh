@@ -13,6 +13,7 @@ if hash git 2>/dev/null; then
   git clone http://github.com/mduca/.dotfiles.git ~/.dotfiles
 
   ln -s ~/.dotfiles/vimrc ~/.vimrc
+  ln -s ~/.dotfiles/bashrc ~/.bashrc
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/dircolors ~/.dircolors
   ln -s ~/.dotfiles/irbrc ~/.irbrc 
