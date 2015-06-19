@@ -17,6 +17,7 @@ if hash git 2>/dev/null; then
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/dircolors ~/.dircolors
   ln -s ~/.dotfiles/irbrc ~/.irbrc 
+  ln -s ~/.dotfiles/gemrc ~/.gemrc 
 
   mkdir ~/.vim
   mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -35,5 +36,5 @@ if hash git 2>/dev/null; then
   echo "Actuated..."
 
 else
-  echo "git not exists"
+  echo "Cannot find git!"
 fi
