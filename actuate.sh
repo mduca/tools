@@ -15,7 +15,7 @@ if [ -e $provision ]
 then
   echo "Vagrantfile found..."
   echo "Setting \$USER to vagrant..."
-  $user=vagrant
+  user=vagrant
 fi
 
 
