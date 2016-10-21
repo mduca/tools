@@ -10,17 +10,17 @@
 
 user=$USER
 
-provision="/vagagrant/Vagrantfile"
+provision=/vagrant/Vagrantfile
 if [ -e $provision ]
 then
-  echo "Vagrantfile found...."
-  echo "Setting \$USER to vagrant...."
+  echo "Vagrantfile found..."
+  echo "Setting \$USER to vagrant..."
   $user=vagrant
 fi
 
 
 if hash git 2>/dev/null; then
-  echo "Cloning repos and plugins...."
+  echo "Cloning repos and plugins..."
   git clone http://github.com/mduca/.dotfiles.git /home/$user/.dotfiles
 
   ln -s /home/$user/.dotfiles/vimrc /home/$user/.vimrc
